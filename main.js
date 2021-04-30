@@ -113,9 +113,132 @@ function fib (n) {
   }
 }
 
-for (let index = 0; index < 13; index++) {
+/* for (let index = 0; index < 13; index++) {
   console.log(fib(index))
-}
+} */
 
 // Task
 // https://en.wikipedia.org/wiki/Factorial
+
+/* function factorial (n) {
+  let result = n
+  for (let i = 1; i < n; i++) {
+    // console.log(`1) i = ${i}, n = ${result}`)
+    result *= i
+    // console.log(`2) i = ${i}, n = ${result}\n`)
+  }
+  return result
+}
+
+function factorialRecursion (n) {
+  if (n <= 0) {
+    return 1
+  } else {
+    return (n * factorialRecursion(n - 1))
+  }
+}
+
+console.log(factorialRecursion(5))
+
+console.log(factorial(5)) */
+
+/* function foo (action) {
+  // console.log(action)
+  if (action) {
+    console.log('Performing an action: ')
+    action()
+  }
+}
+
+foo(() => console.log(`2 * 2 = ${2 * 2}`))
+foo(() => console.log(`3 * 3 = ${3 * 3}`))
+foo() */
+
+/* function intSort (integers) {
+  let isSorted = false
+  do {
+    isSorted = true
+    for (let i = 0; i < integers.length - 1; i++) {
+      const currentElement = integers[i]
+      const nextElement = integers[i + 1]
+      if (currentElement - nextElement < 0) {
+        const temporaryElement = integers[i]
+        integers[i] = integers[i + 1]
+        integers[i + 1] = temporaryElement
+        isSorted = false
+      }
+    }
+  } while (!isSorted)
+}
+
+const integers = [1, -9, 0, 7, 200, 201, 107, -7, 0]
+intSort(integers)
+console.log(integers) */
+
+/* function uSort (elements, comparator) {
+  let isSorted = false
+  do {
+    isSorted = true
+    for (let i = 0; i < elements.length - 1; i++) {
+      const currentElement = elements[i]
+      const nextElement = elements[i + 1]
+      if (comparator(currentElement, nextElement) < 0) {
+        const temporaryElement = elements[i]
+        elements[i] = elements[i + 1]
+        elements[i + 1] = temporaryElement
+        isSorted = false
+      }
+    }
+  } while (!isSorted)
+} */
+
+// const integers = [1, -9, 0, 7, 200, 201, 107, -7, 0]
+/* function intComaratorDesc (a, b) {
+  return a - b
+} */
+// uSort(integers, intComaratorDesc)
+// uSort(integers, (a, b) => b - a)
+// console.log(integers)
+
+/* const strings = ['John', 'Bill', 'Yurii', 'Maria']
+uSort(strings, (a, b) => b.localeCompare(a))
+console.log(strings) */
+
+const people = [
+  {
+    'name': 'John',
+    'age': 30
+  },
+  {
+    'name': 'Bill',
+    'age': 35
+  },
+  {
+    'name': 'Yurii',
+    'age': 25
+  },
+  {
+    'name': 'Maria',
+    'age': 20
+  }
+]
+
+// uSort(people, (a, b) => b.name.localeCompare(a.name))
+// uSort(people, (a, b) => b['name'].localeCompare(a['name']))
+// uSort(people, (a, b) => a.age - b.age)
+// console.log(people)
+
+// streams
+
+/* people.sort((a, b) => a.name.localeCompare(b.name))
+  .filter(person => person.age > 21)
+  .map(person => `${person.name} (${person.age} y.o.)`)
+  .forEach(person => console.log(person)) */
+
+const filteredPeople =
+  people.sort((a, b) => a.name.localeCompare(b.name))
+    .filter(person => person.age > 21)
+const ageSum = filteredPeople.reduce((result, person) => result += person.age, 0)
+
+console.log(ageSum / filteredPeople.length)
+
