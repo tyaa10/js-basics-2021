@@ -242,3 +242,5 @@ const ageSum = filteredPeople.reduce((result, person) => result += person.age, 0
 
 console.log(ageSum / filteredPeople.length)
 
+// Some changes ...
+
